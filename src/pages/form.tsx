@@ -1,10 +1,10 @@
 import React from "react";
 import { Button, Input, Box, Page, useSnackbar } from "zmp-ui";
 import { useRecoilState } from "recoil";
-import { displayNameState } from "../state";
+import { displayNameState } from "state";
 import { useNavigate } from "react-router";
 
-const FormPage = () => {
+const FormPage: React.FunctionComponent = () => {
   const [displayName, setDisplayName] = useRecoilState(displayNameState);
   const snackbar = useSnackbar();
   const navigate = useNavigate();

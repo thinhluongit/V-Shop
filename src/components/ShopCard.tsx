@@ -1,9 +1,8 @@
 import React from "react";
 import { Button, Icon } from "zmp-ui";
-import { shop } from "../data/shop";
+import { shop as shopInfo } from "../data/shop";
 
 const ShopCard = () => {
-  const shopInfo = shop;
   return (
     <div className="flex flex-row justify-between items-center p-4 bg-white">
       {shopInfo && (

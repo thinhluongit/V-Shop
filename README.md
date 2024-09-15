@@ -6,9 +6,9 @@ ZMP app created with following options:
 
 ```
 {
-  "cwd": "/Users/lap15182-local/Desktop/zalo/zmp-blank-templates",
+  "cwd": "/Users/lap15182-local/Documents/zmp-blank-templates",
   "name": "zmp-blank-templates",
-  "framework": "react",
+  "framework": "react-typescript",
   "cssPreProcessor": "scss",
   "includeTailwind": true,
   "package": "zmp-ui",

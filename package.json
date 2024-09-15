@@ -1,8 +1,8 @@
 {
-  "name": "t-shop",
+  "name": "v-shop",
   "private": true,
   "version": "1.0.0",
-  "description": "zmp-blank-templates",
+  "description": "V-Shop",
   "repository": "",
   "license": "UNLICENSED",
   "browserslist": [
@@ -30,6 +30,9 @@
     "zmp-ui": "latest"
   },
   "devDependencies": {
+    "@types/react": "^18.3.1",
+    "@types/react-dom": "^18.3.0",
+    "@types/react-router-dom": "^5.3.3",
     "autoprefixer": "^10.4.19",
     "cross-env": "^7.0.3",
     "postcss": "^8.4.38",
@@ -37,6 +40,7 @@
     "postcss-preset-env": "^6.7.0",
     "sass": "^1.76.0",
     "tailwindcss": "^3.4.3",
-    "vite": "^2.6.14"
+    "vite": "^2.6.14",
+    "vite-tsconfig-paths": "4.0.5"
   }
 }

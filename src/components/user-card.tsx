@@ -1,9 +1,9 @@
 import React from "react";
-import { Avatar, Box, Text } from "zmp-ui";
 import { useRecoilValue } from "recoil";
-import { userState } from "../state";
+import { userState } from "state";
+import { Avatar, Box, Text } from "zmp-ui";
 
-const UserCard = () => {
+const UserCard: React.FunctionComponent = () => {
   const { userInfo } = useRecoilValue(userState);
 
   return (

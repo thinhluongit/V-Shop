@@ -1,4 +1,6 @@
-export const products = [
+import { Product } from "models";
+
+export const products: Product[] = [
   {
     id: 1,
     title: "Essence Mascara Lash Princess",
