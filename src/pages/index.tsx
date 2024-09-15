@@ -78,6 +78,8 @@ const HomePage: React.FunctionComponent = () => {
     },
   });
 
+  const getPhoneNumber = () => {};
+
   return (
     <Page>
       <div>

@@ -17,15 +17,6 @@ export type Product = {
   thumbnail: string;
 };
 
-// export type Shop = {
-//   logoShop: string;
-//   bannerShop: string;
-//   nameShop: string;
-//   address: string;
-//   followers: number;
-//   listProducts: Product[];
-// };
-
 export type HeaderType = {
   route?: string;
   hasLeftIcon?: boolean;
