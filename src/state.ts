@@ -1,7 +1,8 @@
 import { atom, selector } from "recoil";
 import { Product } from "./models";
 import { getUserInfo } from "zmp-sdk";
-import { products } from "data/products";
+import { getProducts } from "api/products";
+import axios from "axios";
 
 export const userState = selector({
   key: "user",
@@ -11,10 +12,10 @@ export const userState = selector({
     }),
 });
 
-export const productState = selector<Product[]>({
+export const productsState = selector({
   key: "products",
-  get: () => {
-    return products;
+  get: async () => {
+    return getProducts();
   },
 });
 
