@@ -1,24 +1,16 @@
+import { API_URL } from "api/products";
+import axios from "axios";
 import CardProduct from "components/CardProduct";
 import ShopCard from "components/ShopCard";
-import React, { useEffect } from "react";
+import React, { useState } from "react";
 import { useRecoilValue } from "recoil";
 import { productsState } from "state";
+import { authorize, getAccessToken, getPhoneNumber } from "zmp-sdk/apis";
 import { Page } from "zmp-ui";
-import {
-  authorize,
-  getAccessToken,
-  getUserInfo,
-  getSetting,
-} from "zmp-sdk/apis";
-import { getPhoneNumber } from "zmp-sdk/apis";
-import { API_URL, getAllProducts } from "api/products";
-import axios from "axios";
-import { Product } from "models";
-
-const ZALO_APP_SECRET_KEY = import.meta.env.VITE_SECRET_KEY;
 
 const HomePage: React.FunctionComponent = () => {
   const shopProducts = useRecoilValue(productsState);
+  const [isLogin, setIsLogin] = useState(false);
 
   getAccessToken({
     success: async (accessToken) => {
@@ -32,7 +24,8 @@ const HomePage: React.FunctionComponent = () => {
 
         if (response.status === 200) {
           // User existed
-          console.log(response.data);
+          setIsLogin(true);
+          // console.log(response.data);
         } else if (response.status === 204) {
           // User not existed
           authorize({
@@ -52,7 +45,8 @@ const HomePage: React.FunctionComponent = () => {
 
                     console.log(response.data);
                     if (response.status === 200) {
-                      console.log(response.data);
+                      setIsLogin(true);
+                      // console.log(response.data);
                     } else {
                       console.log("Error");
                     }
@@ -91,25 +85,27 @@ const HomePage: React.FunctionComponent = () => {
 
   return (
     <Page>
-      <div>
-        <div className="bg-primary">
-          <ShopCard />
+      {isLogin && (
+        <div>
+          <div className="bg-primary">
+            <ShopCard />
+          </div>
+          <div className="bg-gray-100 h-3" />
+          <div className="bg-white p-3">
+            {shopProducts.map((product) => (
+              <div className=" mb-2 w-full" key={product.id}>
+                <CardProduct
+                  id={product.id}
+                  title={product.title}
+                  price={product.price}
+                  sku={product.sku}
+                  thumbnail={product.thumbnail}
+                />
+              </div>
+            ))}
+          </div>
         </div>
-        <div className="bg-gray-100 h-3" />
-        <div className="bg-white p-3">
-          {shopProducts.map((product) => (
-            <div className=" mb-2 w-full" key={product.id}>
-              <CardProduct
-                id={product.id}
-                title={product.title}
-                price={product.price}
-                sku={product.sku}
-                thumbnail={product.thumbnail}
-              />
-            </div>
-          ))}
-        </div>
-      </div>
+      )}
     </Page>
   );
 };
