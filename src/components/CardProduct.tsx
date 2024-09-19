@@ -36,10 +36,7 @@ const CardProduct = ({ title, price, sku, thumbnail }: Product) => {
           className="flex-none">
           <div
             className="w-6 h-6 rounded-full bg-primary flex justify-center items-center"
-            onClick={() => {
-              // setOpenSheet(true);
-              // setProductInfoPicked({ id });
-            }}
+            // onClick={() => {}}
             role="button">
             <Icon icon="zi-plus" size={16} className="text-white" />
           </div>

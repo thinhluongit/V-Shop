@@ -3,8 +3,7 @@ import { Product } from "models";
 
 export const API_URL = import.meta.env.VITE_API_URL || "http://localhost:3000";
 
-export const getProducts = async (): Promise<Product[]> => {
-  console.log("APIURL= " + API_URL);
+export const getAllProducts = async (): Promise<Product[]> => {
   try {
     const response = await axios.get<Product[]>(`${API_URL}/products`);
     console.log(response.data); // Logs the array of products
